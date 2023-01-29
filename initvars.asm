@@ -1,0 +1,27 @@
+;Initializes AMOUNT_OF_SQUARES_HORIZONTAL, HORIZONTAL_OFFSET, AMOUNT_OF_SQUARES_VERTICAL, VERTICAL_OFFSET
+proc InitVars
+	xor dx, dx
+	mov ax, SCREEN_WIDTH
+	div [SQUARE_SIZE]
+	mov [AMOUNT_OF_SQUARES_HORIZONTAL], ax; SCREEN_WIDTH / SQUARE_SIZE 
+	mov [HORIZONTAL_OFFSET], dl; SCREEN_WIDTH % SQUARE_SIZE
+	
+	xor dx, dx
+	mov ax, SCREEN_HEIGHT
+	div [SQUARE_SIZE]
+	mov [AMOUNT_OF_SQUARES_VERTICAL], ax; SCREEN_HEIGHT / SQUARE_SIZE
+	mov [VERTICAL_OFFSET], dl; SCREEN_HEIGHT % SQUARE_SIZE
+	
+	
+	mov ax, SCREEN_HEIGHT
+	sub al, dl; dl == VERTICAL_OFFSET from previus calculation
+	mov [LEN_VERTICAL], ax; SCREEN_HEIGHT - (SCREEN_HEIGHT % SQUARE_SIZE)
+	
+	;SCREEN_WIDTH > FFH, calculation needs to occur inside a word
+	mov ax, SCREEN_WIDTH
+	xor bh, bh
+	mov bl, [HORIZONTAL_OFFSET]
+	sub ax, bx
+	mov [LEN_HORIZONTAL], ax; 
+ret
+endp initVars
