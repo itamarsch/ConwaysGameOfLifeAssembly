@@ -86,9 +86,9 @@ dontShowRules:
 	
 preGameLoop:
 
-	mov ah,01H
+	mov ah,01H; Check for a keyboard press on any button
 	int 16H
-    jnz initMainLoop
+  jnz initMainLoop
 	
 	mov ax, 0005H
 	xor bx, bx
@@ -144,7 +144,7 @@ mainLoop:
 	call ConwaysGameOfLife
 	call SwapBoard
 	call DrawSquares
-	call Delay
+	; call Delay
 	ExitIfEsc
 	
 	

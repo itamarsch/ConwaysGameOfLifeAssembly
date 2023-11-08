@@ -41,9 +41,9 @@ Palbuffer db 256*3 dup (?); Used to save initial pallet and restore it so that m
 CurrentFile   dw ?;Holds address of string for bmp file to show
 
 ;File names for bmp files 
-RulesScreen1  db 'rscreen1.bmp', 0
-RulesScreen2  db 'rscreen2.bmp', 0
-OpeningScreen db 'oscreen.bmp', 0
+RulesScreen1  db 'assets\rscreen1.bmp', 0
+RulesScreen2  db 'assets\rscreen2.bmp', 0
+OpeningScreen db 'assets\oscreen.bmp', 0
 
 
 

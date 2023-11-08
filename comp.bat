@@ -1,2 +1,2 @@
-tasm /zi base
-tlink /v base
+.\tools\tasm /zi base
+.\tools\tlink /v base
